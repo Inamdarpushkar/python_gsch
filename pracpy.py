@@ -32,3 +32,58 @@ def string_bits(str):
   return str[0:len(str):2]
 
 "Given a non-empty string like Code return a string like CCoCodCode"
+def string_splosion(str):
+  j=''
+  for i in range(len(str)):
+    j=j+str[:i+1]
+  return j
+
+"Given a string, return the count of the number of times that a substring length 2 appears in the\
+string and also as the last 2 chars of the string,so hixxxhi yields 1 (we won't count the end substring)."
+
+def last2(c):
+    if len(c)>2:
+        last=c[-2:]
+        count=0
+        for ind in range(len(c)):
+            current=c[ind:ind+2]
+            if current==last: 
+                count+=1
+        return (count-1)
+    else:
+      return 0
+
+
+"Given an array of ints, return True if one of the first 4 elements in the array is a 9.\
+The array length may be less than 4."
+
+def array_front9(nums):
+  count=0
+  for num in nums[:4]:
+    if num ==9:
+      return True
+  return False
+
+
+"Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere.\
+array123([1, 1, 2, 3, 1]) → True\
+array123([1, 1, 2, 4, 1]) → False\
+array123([1, 1, 2, 1, 2, 3]) → True"
+
+def array123(li):
+  for i in range(len(li)-2):
+    if li[i]==1 and li[i+1]==2 and li[i+2]==3:
+      return True
+  return False
+
+
+
+
+
+
+
+
+
+
+
+
