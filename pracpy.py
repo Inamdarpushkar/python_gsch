@@ -99,6 +99,64 @@ def string_match(a, b):
       count = count + 1
   return count
 
+#Given a string, find the length of the longest
+#substring without repeating characters.
+
+def chk(s):
+    lmax = 0
+    m = []
+    for i,v in enumerate(s):
+        if v in m:
+            while m:
+                if v == m.pop(0):
+                    break
+        m.append(v)
+        lmax = max(lmax, len(m))
+    return lmax
+
+#incorrect
+def chk(s):
+    ansss=[]
+    mid=[]
+    if s=="" or s==" ":
+        return 0
+    elif len(s)==1:
+        return 1
+    else:
+        for i in  s:
+            if i not in mid:
+                mid.append(i)
+            
+            elif i in mid:
+                ansss.append(len(mid))
+                mid=[mid[-1]]
+                if mid[-1] !=i:
+                    mid.append(i)
+        m=len(mid)
+        if len(ansss) !=0 and max(ansss)>m:
+            m=max(ansss)
+            
+            
+    ansss1=[]
+    mid1=[]
+    if s=="" or s==" ":
+        return 0
+    elif len(s)==1:
+        return 1
+    else:
+        for i in  reversed(s):
+            if i not in mid1:
+                mid1.append(i)
+            
+            elif i in mid1:
+                ansss1.append(len(mid1))
+                mid1=[mid1[-1]]
+                if mid1[-1] !=i:
+                    mid1.append(i)
+        m1=len(mid1)
+        if len(ansss1) !=0 and max(ansss1)>m1:
+            m1=max(ansss1)
+        return max(m,m1)
 
 
 
